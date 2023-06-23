@@ -23,3 +23,18 @@
 Se va a crear una tabla con los siguentes cirterios: 
 
 ![](https://github.com/DiegoJm10/Instalacion-de-base-de-datos/blob/main/localhost%20_%20127.0.0.1%20_%20tamulbatm7%20_%20tamulba7%20_%20phpMyAdmin%205.2.1%20-%20Google%20Chrome%2016_06_2023%2008_50_24%20a.%20m..png?raw=true)
+
+
+## Usar en node-red
+
+Se colocara el bloque de Mysql y un bloque de función para obtener los datos con el siguente codigo. 
+
+```
+var query = "INSERT INTO `tamulba7`(`ID`, `FECHA`, `DEVICE`, `TEMPERATURA`, `AMPERAJE`) VALUES (NULL, current_timestamp(), '";
+query = query+msg.payload.DEVICE + "','";
+query = query+msg.payload.TEMPERATURA + "','";
+query = query+msg.payload.AMPERAJE + "');'";
+msg.topic=query;
+return msg;
+
+```
